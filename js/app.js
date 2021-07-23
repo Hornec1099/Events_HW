@@ -1,29 +1,38 @@
 const contentLoaded = document.addEventListener('DOMContentLoaded', () => {
     console.log('Javascript Loaded')
 
-    const form = document.querySelector('#new-review-form');
-    form.addEventListener('submit' , handleFormSubmit);
+    const addForm = document.querySelector('#new-review-form');
+    addForm.addEventListener('submit' , handleFormSubmit);
+
+    const deleteForm = document.querySelector('#delete')
+    deleteForm.addEventListener('click', handleDelete)
 
 });
+
+
+const handleDelete = function (event) {
+
+    const theList = document.querySelector('#review-list');
+    theList.textContent = ''
+
+}
 
 const handleFormSubmit = function(event) {
         event.preventDefault();
 
-        const theForm = document.querySelector('#new-review-form');
+        const createdEvent = createItem(event.target);
 
         const newElementLists = document.querySelector('#review-list');
 
-        const createdEvent = createItem(event);
+        newElementLists.appendChild(createdEvent);
 
-        newElementLists.appendChild(createdEvent)
-
-        theForm.reset();
+        event.target.reset();
    
 }
 
 const createItem  = (form) => {
     const newListItem = document.createElement('li')
-    newElementLists.appendChild(newListItem);
+    
     
     const newGame = document.createElement('h4');
     newGame.textContent = ` Game: ${form.game.value}`;
@@ -38,6 +47,8 @@ const createItem  = (form) => {
     newListItem.appendChild(newReason);
 
     const newName = document.createElement('p');
-    newName.textContent = ` User:${form.firstName.value}  ${form.lastName.value}`;
+    newName.textContent = ` User: ${form.firstName.value}  ${form.lastName.value}`;
     newListItem.appendChild(newName);
+
+    return newListItem
 }
