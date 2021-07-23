@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rated Games</title>
+    <script src = 'js/app.js' ></script>
+</head>
+<body>
+    <h1> List of Games Rated By You </h1>
+    <p> Find below a form where you can enter the Game and Your personal rating. Don't forget to leave your name</p>
+
+    <form id = 'new-review-form'>
+        <label for = 'game'> What is the Game? :</label>
+        <input type = 'text' id = 'game' name = 'game'>
+
+        <label for = 'rating'> Whats Your Rating?:</label>
+        <select id = 'rating' name ='rating'>
+            <option value = '0'> 0 </option>
+            <option value = '1'> 1 </option>
+            <option value = '2'> 2 </option>
+            <option value = '3'> 3 </option>
+            <option value = '4'> 4 </option>
+            <option value = '5'> 5 </option>
+        </select>
+
+        <label for = 'reason'> Whats the Reason for the Rating?:</label>
+        <textarea id ='reason' name='reason' col= '15' row ='3' placeholder ='Enter Short Reason'></textarea>
+
+        <label for = 'firstName'> What is Your First Name?: </label>
+        <input id ='firstName' name = 'firstName' type = 'text'>
+
+        <label for = 'lastName'> What is Your Last Name?: </label>
+        <input id ='lastName' name = 'lastName' type = 'text'>
+
+        <button type ='submit' id = 'submit'> Submit Review! </button>
+    </form>
+
+    <h2> All Reviews!</h2>
+
+    <ul id ='review-list'>
+
+    </ul>
+</body>
+</html>
